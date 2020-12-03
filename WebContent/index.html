@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+	
+	 <!-- tpestacionamientojava@gmail.com estacionamiento123 -->
+	
+	
+    <title>Estacionamiento Web</title>
+	
+    <!-- Bootstrap core CSS -->
+    <link href="style/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style/signin.css" rel="stylesheet">
+  
+  
+  </head>
+	
+  <body class="bg-warning">
+   <!-- style="position: absolute; backgro
+   und-color: #ff9; padding: 15px; right:0px;top:0px;height:80px; width: 1280px; text-align:center;font-size:35px"-->
+   	<header>
+   	<div class="row">ESTACIONAMIENTO WEB</div>
+</header>
+ 	
+   	<div  id="img" style="position:absolute;padding: 0px;right:1000px;top:150px;z-index:2;">
+   		<img src="parking.jpg" width="150" height="150">
+   	</div>
+   	
+   	<div id="map" style="position:absolute;right:485px;top:550px;z-index:2;">
+  		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.7195033674557!2d-60.65911778481406!3d-32.932008380925446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab75e5c051d9%3A0x994b2583b064d7bf!2sEstacionamiento%20Medido%20-Transito%20Rosario%20S.A!5e0!3m2!1ses-419!2sar!4v1601170401626!5m2!1ses-419!2sar" width="300" height=300"  style="border:20;" aria-hidden="false" tabindex="0"></iframe>
+  	</div>
+  	
+     <div Style="position:absolute;padding: 0px;right:565px;top:150px;z-index:2;text-align:center">
+    			<form class="form-signin bg-dark text-white" action="signin" method="post">
+				    <p class="lead">Inicio de sesión</p>
+				      
+				      <label for
+				      ="usuario" class="sr-only">Usuario</label>
+				      <input id="usuario" name="usrName" class="form-control" placeholder="Usuario" type="text" required>
+				      
+				      
+				      <label for="inputPassword" class="sr-only">Password</label>
+				      <input id="inputPassword" name="password" class="form-control" placeholder="Contraseña" type="password" required>
+				      
+				      <button class="btn btn-sm btn-primary btn-block" type="submit">INGRESAR</button>
+				     <a>- - - - - - - - - - - - - - -</a>
+			    </form>
+			    <form class="form-signin bg-dark text-white" action="Redireccionamiento" method="post">
+			    	<p class="small lead">¿No posee una cuenta?</p>
+			    	<input type="hidden" name="direccion" value="WEB-INF/NewUser.jsp">
+			    	<button class="btn btn-sm btn-success" type="submit">REGISTRARME</button>
+			    </form>
+		</div>
+		
+	<div style="position: absolute; background-color: #ff9; padding: 15px; right:115px;top:150px;height:160px; width: 205px; font-size:20px">
+		<p>REGISTRESE PARA OBTENER UN DESCUENTO DE HASTA 30% !!</p>
+	</div>
+		
+		
+	<div style="position: absolute; background-color: #ff9; padding: 15px; right:0px;top:900px;height:120px; width: 1280px; font-size:20px;">
+		<a>Ciudad: Rosario        <a><br>
+		<a>Dirección: Zeballos 1341<a><br>
+		<a>Telefono: 0303-456</a>
+	</div>
+</body></html>
