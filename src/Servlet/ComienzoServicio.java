@@ -63,15 +63,20 @@ public class ComienzoServicio extends HttpServlet {
 		try {
 			auto=auLog.getOne(patente);
 		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
+			request.setAttribute("mensaje", "Error al recuperar auto (No existe el auto asociado al cliente o no se pudo recuperar)");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
 		
 		if(auto.getModelo() == null) {
 			auto.setPatente(patente);
 			auto.setModelo(null);
 		}
-		lugLog.update(auto, lugar);
+		try {
+			lugLog.update(auto, lugar);
+		} catch (SQLException e1) {
+			request.setAttribute("mensaje", "Error al actualizar el estado del lugar");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		}
 		TarifaLogic tarLog = new TarifaLogic();
 		
 		
@@ -88,7 +93,12 @@ public class ComienzoServicio extends HttpServlet {
 		}
 		ticket.setFecha_horaIni(dh);
 		ticket.setAuto(auto);
-		TickLog.insert(ticket);
+		try {
+			TickLog.insert(ticket);
+		} catch (SQLException e) {
+			request.setAttribute("mensaje", "Error al crear ticket de comienzo de servicio");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		}
 		System.out.println("REGISTRADO");
 		request.setAttribute("usuario", usu);
 		request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);

@@ -74,41 +74,24 @@ public class UsuarioLogic {
 		
 	}
 	
-	public void insert(Usuario usu) {
+	public void insert(Usuario usu) throws SQLException{
 		
-		try {
-			
+		
 			usData.insert(usu);
 			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-		}
+		
 	}
 	
-	public void delete(int dni) {
-		
-		try {
+	public void delete(int dni) throws SQLException{
 			
 			usData.delete(dni);
-			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-			
-		}
+
 	}
 	
-	public void update(Usuario usu) {
-		
-		try {
+	public void update(Usuario usu) throws SQLException{
 			
 			usData.update(usu);
-			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-		}
+		
 	}
 	
 	

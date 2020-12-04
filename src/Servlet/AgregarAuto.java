@@ -57,9 +57,8 @@ public class AgregarAuto extends HttpServlet {
 		try {
 			band = aulog.validaPatente(pat);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			
-			System.out.println(e.getMessage());
+			request.setAttribute("mensaje", "Patente Invalida");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
 		request.setAttribute("usuario", usu);
 		
@@ -70,7 +69,12 @@ public class AgregarAuto extends HttpServlet {
 			
 		}
 		else {
-			aulog.insert(auto);
+			try {
+				aulog.insert(auto);
+			} catch (Exception e) {
+				request.setAttribute("mensaje", "Error al agregar Auto");
+				request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+			}
 			System.out.println("REGISTRADO");
 			
 			request.getRequestDispatcher("WEB-INF/NoUserManagement.jsp").forward(request, response);

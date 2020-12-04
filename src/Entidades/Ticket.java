@@ -162,12 +162,11 @@ public class Ticket {
 		return (float) importe;
 	}
 	
-	public ByteArrayOutputStream Pdf() {
+	public ByteArrayOutputStream Pdf() throws DocumentException{
 
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-try {
 
 
             PdfWriter.getInstance(document, baos);
@@ -176,13 +175,7 @@ try {
             Paragraph par = new Paragraph("ID: "+this.getId()+"\r\n"+"Patente: "+this.getNumpat()+"\r\n"+"Fecha y hora de llegada:"+this.getFecha_horaIni()+"\r\n"+"Fecha y hora de salida:"+this.getFecha_horaFin()+"\r\n"+"Importe:"+this.getImporte(),font);
             document.add(par);
             document.close();
-
-
-
-        } catch (DocumentException e) {
-
-            e.printStackTrace();
-        }
+        
         return baos;
 
     }

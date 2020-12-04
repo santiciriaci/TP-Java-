@@ -70,9 +70,8 @@ public class NuevoUsuario extends HttpServlet {
 		try {
 			band = usuLog.validaUsr(usuario);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			
-			System.out.println(e.getMessage());
+			request.setAttribute("mensaje", "Usuario ya existente, DNI ya registrado");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
 		
 		
@@ -87,7 +86,12 @@ public class NuevoUsuario extends HttpServlet {
 		else {
 			
 			System.out.println("Registrado");
-			usuLog.insert(usr);
+			try {
+				usuLog.insert(usr);
+			} catch (SQLException e) {
+				request.setAttribute("mensaje", "Error al registrar nuevo usuario");
+				request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+			}
 			request.setAttribute("new",1);
 			request.getRequestDispatcher("index.html").forward(request, response);
 		}

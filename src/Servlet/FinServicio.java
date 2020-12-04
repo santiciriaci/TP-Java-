@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import com.itextpdf.text.DocumentException;
 
 import Entidades.Usuario;
 import Entidades.Auto;
@@ -61,7 +61,8 @@ public class FinServicio extends HttpServlet {
 		try {
 			tic = tickLog.getOne(patente);
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			request.setAttribute("mensaje", "Error al recuperar ticket");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
 		
 		Date date = new Date();
@@ -71,11 +72,11 @@ public class FinServicio extends HttpServlet {
 		try {
 			tickLog.finSer(tic);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
+			request.setAttribute("mensaje", "Error al registrar el fin de servicio");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
+			request.setAttribute("mensaje", "Error al convertir las fechas del ticket");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
 		LugarLogic lugLogic = new LugarLogic();
 		Lugar lug = new Lugar();
@@ -85,8 +86,8 @@ public class FinServicio extends HttpServlet {
 			 lug = lugLogic.getOne(patente);
 			 
 		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
+			request.setAttribute("mensaje", "Error al recuperar lugar");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
 		actLug.setEstado('D');
 		au.setPatente(null);
@@ -94,11 +95,22 @@ public class FinServicio extends HttpServlet {
 		actLug.setAuto(au);
 		actLug.setCodLugar(lug.getCodLugar());
 		actLug.setNumpat(null);
-		lugLogic.update(au, actLug);
+		try {
+			lugLogic.update(au, actLug);
+		} catch (SQLException e) {
+			request.setAttribute("mensaje", "Error al actualizar estado del lugar");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		}
 		System.out.println(benefUsr);
 		System.out.println(benefDia);
 		System.out.println("FINALIZADO");
-ByteArrayOutputStream baos = tic.Pdf();
+		ByteArrayOutputStream baos = null;
+		try {
+			baos = tic.Pdf();
+		} catch (DocumentException e) {
+			request.setAttribute("mensaje", "Error al crear PDF");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		}
 		
 		// setting some response headers
         response.setHeader("Expires", "0");

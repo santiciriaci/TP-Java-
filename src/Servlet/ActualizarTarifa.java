@@ -1,6 +1,8 @@
 package Servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -62,7 +64,12 @@ public class ActualizarTarifa extends HttpServlet {
 		tar.setSemanal(semanal);
 		tar.setMensual(mensual);
 		
-		tarLog.insert(tar);
+		try {
+			tarLog.insert(tar);
+		} catch (SQLException e) {
+			request.setAttribute("mensaje", "Error al actualizar tarifa");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		}
 		request.setAttribute("usuario", usu);
 		System.out.println("REGISTRADO");
 		

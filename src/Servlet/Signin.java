@@ -42,7 +42,10 @@ public class Signin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Usuario usu = null;
+		Usuario usu = (Usuario)request.getAttribute("usuario");
+		if(usu==null) {
+
+		
 		UsuarioLogic usulog = new UsuarioLogic();
 		
 		String usrName = request.getParameter("usrName");
@@ -52,8 +55,8 @@ public class Signin extends HttpServlet {
 		try {
 			usu=usulog.getOne(usrName,password);
 		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
+			request.setAttribute("mensaje", "Usuario no existente o datos incorrectos");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
 		if(usu.getNombre() == null) {
 			usu=null;
@@ -73,10 +76,23 @@ public class Signin extends HttpServlet {
 				request.getRequestDispatcher("WEB-INF/NoUserManagement.jsp").forward(request, response);
 			}
 		}
+	
 		else{
 		request.getRequestDispatcher("index.html").forward(request, response);
 		System.out.println("Usuario y/o contraseña incorrectos");
 		
 	}
+		}
+		else {
+			if (usu.getTipoUs()){	
+				
+				request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
+			}
+			else {
+				
+				request.getRequestDispatcher("WEB-INF/NoUserManagement.jsp").forward(request, response);
+			}
+		}
+		
 	}
 }

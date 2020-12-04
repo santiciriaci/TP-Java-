@@ -15,9 +15,9 @@ import javax.mail.internet.MimeMessage;
 public class Mail {
     
     //public boolean enviarCorreo(String de, String clave, String[] para, String mensaje, String asunto){
-    public boolean enviarCorreo(String de, String clave, String para, String mensaje, String asunto){
+    public boolean enviarCorreo(String de, String clave, String para, String mensaje, String asunto) throws Exception{
         boolean enviado = false;
-            try{
+  
             
                 String host = "smtp.gmail.com";
                 
@@ -66,9 +66,7 @@ public class Mail {
                 
                 enviado = true;
                 
-            }catch(Exception e){
-                e.printStackTrace();
-            }
+          
         
         return enviado;
     }

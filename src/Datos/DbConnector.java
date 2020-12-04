@@ -1,6 +1,7 @@
 package Datos;
 
 import java.sql.*;
+import java.util.TimeZone;
 
 public class DbConnector {
 
@@ -33,7 +34,7 @@ public class DbConnector {
 	public Connection getConn() {
 		try {
 			if(conn==null || conn.isClosed()) {
-				conn=DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/"+db, user, password);
+				conn=DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/"+db+"?serverTimezone=UTC", user, password);
 				conectados=0;
 			}
 		} catch (SQLException e) {

@@ -41,41 +41,23 @@ public LinkedList<Ticket> getTicketsPatente(String pat, int mes, int ano) throws
 		Ticket ticket = tickData.finSer(ti);
 		return ticket;
 	}
-	public void insert(Ticket tick) {
+	public void insert(Ticket tick) throws SQLException{
 		
-		try {
-			
 			tickData.insert(tick);
-			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-		}
+
 	}
 	
-	public void delete(int id) {
+	public void delete(int id) throws SQLException{
 		
-		try {
-			
+		
 			tickData.delete(id);
 			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-			
-		}
 	}
 	
-	public void update(Ticket tick) {
+	public void update(Ticket tick) throws SQLException{
 		
-		try {
-			
 			tickData.update(tick);
 			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-		}
 	}
 	
 	

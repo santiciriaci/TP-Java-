@@ -29,56 +29,35 @@ private AutoData auData;
 		
 	}
 	
-	public void insert(Auto au) {
-		
-		try {
+	public void insert(Auto au) throws SQLException{
 			
 			auData.insert(au);
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-			
-		}
+
 	}
 	
 	
-	public void delete(String patente) {
-		
-		try {
-			
+	public void delete(String patente) throws SQLException{
+					
 			auData.delete(patente);
 			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-			
-		}
+	
 	}
 	
-	public void update(Auto au) {
+	public void update(Auto au) throws SQLException{
 		
-		try {
 			
 			auData.update(au);
 			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-		}
+	
 	}
 	
-	public LinkedList<Auto> getAutosCte(int dni){
+	public LinkedList<Auto> getAutosCte(int dni) throws SQLException{
 		
-		try {
 			return auData.getAutosCte(dni);
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
-		
+	
 	}
 	
-	public boolean validaPatente(String pat)throws SQLException{
+	public boolean validaPatente(String pat) throws SQLException{
 		
 		
 		ArrayList<Auto> autos = auData.getAll(); 

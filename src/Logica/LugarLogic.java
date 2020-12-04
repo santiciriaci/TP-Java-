@@ -31,52 +31,35 @@ public LinkedList<Lugar> getAll() throws SQLException {
 		
 	}
 	
-	public void insert(Lugar lug) {
+	public void insert(Lugar lug) throws SQLException{
 		
-		try {
-			
+		
 			lugData.insert(lug);
 			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-		}
+		
 	}
 	
-	public void delete(int codLugar) {
+	public void delete(int codLugar) throws SQLException{
 		
-		try {
-			
+		
 			lugData.delete(codLugar);
 			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-			
-		}
 	}
 	
-	public void update(Auto auto,Lugar lug) {
+	public void update(Auto auto,Lugar lug) throws SQLException{
 		
-		try {
-			
+		
 			lugData.update(auto,lug);
 			
-		} catch (SQLException e) {
-			
-			System.out.println(e.getMessage());
-		}
+		
 
 }
 	
-	public LinkedList<Lugar> getDisponibles(){
+	public LinkedList<Lugar> getDisponibles() throws SQLException{
 		
-		try {
+		
 			return lugData.getDisponibles();
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
+		
 		
 	}
 }

@@ -35,12 +35,21 @@ public class AsistenciaMensual extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mesInii = request.getParameter("mesIni");
-		int mesIni = Integer.parseInt(mesInii);
-		String anoInii = request.getParameter("anoIni");
-		int anoIni = Integer.parseInt(anoInii);
+		int mesIni = 0;
+		int anoIni = 0;
+		try {
+			mesIni = Integer.parseInt(mesInii);
+			String anoInii = request.getParameter("anoIni");
+			anoIni = Integer.parseInt(anoInii);
 		
+	} catch (Exception e) {
+		request.setAttribute("mensaje", "Mes o Año ingresados incorrectos");
+		request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+	}
+		request.getAttribute("usuario");
 		request.setAttribute("mesIni", mesIni);
 		request.setAttribute("anoIni", anoIni);
+		
 		request.getRequestDispatcher("WEB-INF/ListaAsistenciaMensual.jsp").forward(request, response);
 		
 	}

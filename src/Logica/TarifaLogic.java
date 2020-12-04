@@ -31,42 +31,25 @@ public class TarifaLogic {
 			return tarifa;
 			
 		}
-		public void insert(Tarifa tar) {
+		public void insert(Tarifa tar) throws SQLException{
 			
-			try {
-				
+			
 				tarData.insert(tar);
-				
-			} catch (SQLException e) {
-				
-				System.out.println(e.getMessage());
-			}
+			
 		}
 		
 		
-		public void delete(int tarifa) {
+		public void delete(int tarifa) throws SQLException{
 			
-			try {
-				
 				tarData.delete(tarifa);
-				
-			} catch (SQLException e) {
-				
-				System.out.println(e.getMessage());
-				
-			}
+		
 		}
 		
-		public void update(Tarifa tar) {
+		public void update(Tarifa tar) throws SQLException{
 			
-			try {
-				
+			
 				tarData.update(tar);
 				
-			} catch (SQLException e) {
-				
-				System.out.println(e.getMessage());
-			}
 		}
 		
 		

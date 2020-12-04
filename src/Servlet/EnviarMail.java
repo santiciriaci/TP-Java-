@@ -38,7 +38,7 @@ public class EnviarMail extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Mail mail = new Mail();
-        
+		request.setAttribute("usuario", request.getAttribute("usuario"));
         String de =  "tpestacionamientojava@gmail.com";
         String clave = "estacionamiento123";
        
@@ -64,13 +64,16 @@ public class EnviarMail extends HttpServlet {
         
         */
         
-        boolean resultado = mail.enviarCorreo(de, clave, para, mensaje, asunto);
+        boolean resultado = false;
+		try {
+			resultado = mail.enviarCorreo(de, clave, para, mensaje, asunto);
+		} catch (Exception e) {
+			request.setAttribute("mensaje", "Error al enviar E-mail");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		}
         
         if(resultado){
-            System.out.print("CORREO ELECTRONICO CORRECTAMENTE ENVIADO....");
-            request.getRequestDispatcher("WEB-INF/NoUserManagement.jsp").forward(request, response);
-        }else{
-            System.out.print("CORREO ELECTRONICO NO ENVIADO..."); 
+            System.out.print("E-mail enviado correctamente");
             request.getRequestDispatcher("WEB-INF/NoUserManagement.jsp").forward(request, response);
         }
 	}

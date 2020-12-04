@@ -53,7 +53,8 @@ public class FacturacionCliente extends HttpServlet {
 		try {
 			existe =  usuLog.validaUsrDni(dni);
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			request.setAttribute("mensaje", "DNI no existente");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
 		request.setAttribute("usuario", usu);
 		if (existe) {
