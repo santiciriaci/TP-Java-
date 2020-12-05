@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.Session;
+
 /**
  * Servlet implementation class AsistenciaMensual
  */
@@ -46,7 +48,6 @@ public class AsistenciaMensual extends HttpServlet {
 		request.setAttribute("mensaje", "Mes o Año ingresados incorrectos");
 		request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 	}
-		request.getAttribute("usuario");
 		request.setAttribute("mesIni", mesIni);
 		request.setAttribute("anoIni", anoIni);
 		

@@ -75,7 +75,7 @@
      		<input id="inputPatente" name="patente" class="form-control" placeholder="Patente" type="text">
 		    <input id="inputModelo" name="modelo" class="form-control" placeholder="Modelo" type="text">
 		    <input type="hidden" name="dni" value="<%=u.getDni() %>">
-		    <Button class="btn btn-lg btn-secondary" type="submit">Regristrar nuevo vehículo</Button>
+		    <Button class="btn btn-lg btn-secondary" type="submit">Registrar nuevo vehículo</Button>
 		 </form>
      </div>
 	<div style="position: absolute; background-color: #ff9; padding: 15px; right:0px;top:700px;height:120px; width: 1280px; font-size:20px">

@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.jsp.PageContext;
 
 import Entidades.Usuario;
 
@@ -42,7 +42,7 @@ public class Signin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Usuario usu = (Usuario)request.getAttribute("usuario");
+		Usuario usu = null;//(Usuario)request.getSession().getAttribute("usuario"); HAY QUE VER COMO ELIMINAR LA VARIABLE DE SESION AL CERRAR LA PAGINA Y PROBAR EL FILTRO (NECESITAMOS HACER EL DEPLOY PARA ESO)
 		if(usu==null) {
 
 		
