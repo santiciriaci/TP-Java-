@@ -42,7 +42,7 @@ public class Signin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Usuario usu = null;//(Usuario)request.getSession().getAttribute("usuario"); HAY QUE VER COMO ELIMINAR LA VARIABLE DE SESION AL CERRAR LA PAGINA Y PROBAR EL FILTRO (NECESITAMOS HACER EL DEPLOY PARA ESO)
+		Usuario usu = null;
 		if(usu==null) {
 
 		

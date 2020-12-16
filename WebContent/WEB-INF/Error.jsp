@@ -17,7 +17,7 @@
                 <h1>
                 	<%=request.getAttribute("mensaje")%>
                 </h1>
-                <form action="Signin" method="post">
+                <form action="VolverServlet" method="post">
                 <button id="btnVolver" name="btnVolver" class="btn btn-sm btn-success" type="submit">Volver
                 </button>
                 
