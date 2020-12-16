@@ -119,18 +119,18 @@
           <form action="FacturacionCliente" method="post">
   				<b>Facturación mensual cliente</b>
   				<input id="dni" name="dni" class="form-control" placeholder="Dni" type="text"><br>
-  				<input id="mesIni" name="mesIni" class="form-control" placeholder="Mes desde" type="text"><br>
-  				<input id="anoIni" name="anoIni" class="form-control" placeholder="Año desde" type="text"><br>
-  				<button class="btn btn-sm btn-success" type="submit">Buscar</button> 
+  				<input id="mesIni" name="mesIni" class="form-control" placeholder="Mes" type="text"><br>
+  				<input id="anoIni" name="anoIni" class="form-control" placeholder="Año" type="text"><br>
+  				<button class="btn btn-sm btn-success" type="submit">Buscar</button>
   				</form>
        </div >
        
         <div id="recuadro" style="position:absolute;left:100px;top:780px;z-index:2;background-color: #ff9;text-align:center;">
           <form action="AsistenciaMensual" method="post">
   				<b>Asistencia mensual de clientes</b>
-  				<input id="mesIni" name="mesIni" class="form-control" placeholder="Mes desde" type="text"><br>
-  				<input id="anoIni" name="anoIni" class="form-control" placeholder="Año desde" type="text"><br>
-  				<button class="btn btn-sm btn-success" type="submit">Buscar</button> 
+  				<input id="mesIni" name="mesIni" class="form-control" placeholder="Mes" type="text"><br>
+  				<input id="anoIni" name="anoIni" class="form-control" placeholder="Año" type="text"><br>
+  				<button class="btn btn-sm btn-success" type="submit">Buscar</button>
   				</form>
        </div >
        

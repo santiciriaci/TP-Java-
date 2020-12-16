@@ -70,7 +70,12 @@
                   
              </tbody>
              </table>  
-             <h3 style="position:relative;left:170px;top:25px;z-index:2;">IMPORTE TOTAL $<%=impTotal%> </h3>  
+             <h3 style="position:relative;left:170px;top:25px;z-index:2;">IMPORTE TOTAL $<%=impTotal%> </h3> 
+             
+             <form action="VolverServlet" method="post">
+                <button id="btnVolver" name="btnVolver" class="btn btn-sm btn-default" type="submit">Volver
+                </button>
+                </form>
      </div>
 </body>
 </html>

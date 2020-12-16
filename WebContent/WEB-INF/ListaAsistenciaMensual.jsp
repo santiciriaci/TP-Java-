@@ -17,14 +17,14 @@
     <link href="style/tabla.css" rel="stylesheet">
     
     <%
-    Usuario u = (Usuario)session.getAttribute("usuario");
+    		Usuario u = (Usuario)session.getAttribute("usuario");
     		int mesIni = (int)request.getAttribute("mesIni");
     		int anoIni = (int)request.getAttribute("anoIni");
     		UsuarioLogic usuLog = new UsuarioLogic();
     		LinkedList<Usuario> clientes = usuLog.clientesMensuales(mesIni,anoIni);
     		System.out.println(clientes);
-    		
-    		
+    		request.getSession().setAttribute("mes", mesIni);
+    		request.getSession().setAttribute("ano", anoIni);
     %>
 </head>
 <body class="bg-warning">
@@ -56,8 +56,23 @@
                     </tr>
                  
                   <% } %>
+                  <tr>
+             <td>
+             <form action="VolverServlet" method="post">
+                <button id="btnVolver" name="btnVolver" class="btn btn-sm btn-default" type="submit">Volver
+                </button>
+                </form> </td>    
+                <td>
+                <form action="EmailDescuentoServlet" method="post">
+                
+                <button id="btnDescuento" name="btnDescuento" class="btn btn-sm btn-success" type="submit">Otorgar Descuentos
+                </button>
+             	</form> 
+             	</td>  
+             	</tr>
              </tbody>
              </table>  
+            
              
      </div>
 </body>

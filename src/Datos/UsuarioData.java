@@ -94,7 +94,7 @@ public UsuarioData() {
 		
 		
 		
-		PreparedStatement stmt  = conn.prepareStatement("select us.nombre,us.apellido,us.mail,telefono ,COUNT(ti.ID_ticket) as cantidad from usuarios us inner join vehiculo ve on us.dni = ve.dni inner join  ticket ti on ve.patente = ti.patente WHERE (month(`fecha_hora_inicio`)=? and year(`fecha_hora_inicio`)=?) GROUP By us.dni");
+		PreparedStatement stmt  = conn.prepareStatement("select us.nombre,us.apellido,us.mail,telefono ,COUNT(ti.ID_ticket) as cantidad from usuarios us inner join vehiculo ve on us.dni = ve.dni inner join  ticket ti on ve.patente = ti.patente WHERE (month(`fecha_hora_inicio`)=? and year(`fecha_hora_inicio`)=?) GROUP By us.dni order by cantidad desc");
 		
 		stmt.setInt(1,mes);
 		stmt.setInt(2, ano);
