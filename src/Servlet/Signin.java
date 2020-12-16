@@ -83,16 +83,6 @@ public class Signin extends HttpServlet {
 		
 	}
 		}
-		else {
-			if (usu.getTipoUs()){	
-				
-				request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
-			}
-			else {
-				
-				request.getRequestDispatcher("WEB-INF/NoUserManagement.jsp").forward(request, response);
-			}
-		}
 		
 	}
 }
