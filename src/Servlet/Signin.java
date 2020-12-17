@@ -78,8 +78,8 @@ public class Signin extends HttpServlet {
 		}
 	
 		else{
-		request.getRequestDispatcher("index.html").forward(request, response);
-		System.out.println("Usuario y/o contraseña incorrectos");
+			request.setAttribute("mensaje", "Usuario no existente o datos incorrectos");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		
 	}
 		}

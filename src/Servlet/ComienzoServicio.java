@@ -71,12 +71,21 @@ public class ComienzoServicio extends HttpServlet {
 			auto.setPatente(patente);
 			auto.setModelo(null);
 		}
+		
+		
+		
 		try {
 			lugLog.update(auto, lugar);
-		} catch (SQLException e1) {
+		} 
+		catch (SQLException e1) {
 			request.setAttribute("mensaje", "Error al actualizar el estado del lugar");
 			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		} 
+		catch (Exception e) {
+			request.setAttribute("mensaje", e.getMessage());
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
+		
 		TarifaLogic tarLog = new TarifaLogic();
 		
 		
@@ -88,8 +97,8 @@ public class ComienzoServicio extends HttpServlet {
 		try {
 			ticket.setTarifa(tarLog.getActual());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.setAttribute("mensaje", "No se encontro la tarifa actual");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
 		ticket.setFecha_horaIni(dh);
 		ticket.setAuto(auto);

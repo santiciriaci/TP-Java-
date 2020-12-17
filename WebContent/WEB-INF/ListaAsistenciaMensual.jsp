@@ -61,14 +61,17 @@
              <form action="VolverServlet" method="post">
                 <button id="btnVolver" name="btnVolver" class="btn btn-sm btn-default" type="submit">Volver
                 </button>
-                </form> </td>    
+                </form> </td>
                 <td>
                 <form action="EmailDescuentoServlet" method="post">
                 
                 <button id="btnDescuento" name="btnDescuento" class="btn btn-sm btn-success" type="submit">Otorgar Descuentos
                 </button>
-             	</form> 
-             	</td>  
+             	</form>
+             	</td>
+             	  <td></td>
+             	  <td></td>
+             	  <td></td>
              	</tr>
              </tbody>
              </table>  

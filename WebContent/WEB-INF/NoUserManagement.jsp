@@ -34,17 +34,27 @@
 </head>
 <body class="bg-warning">
 	<h2 style="text-align:center">Bienvenido usuario: <%=u.getUsuario() %></h2>
-	
-	<div id="recuadro" style="text-align:center;top:150px">
+	<div style="position:absolute;top:0px;left:90%;background-color: #ff9;">
+      <form action="LogOut" method="post">
+                <button id="btnVolver" name="btnVolver" class="btn btn-sm btn-danger" type="submit">Cerrar Sesión
+                </button>
+                </form>
+                </div>
+	<div id="recuadro" style="top:150px">
 	<form  action="EnviarMail" method="post">
+	<div style="text-align:center">
 	<a> INGRESE LA PATENTE DE SU VEHICULO Y ...<br>
 	CLICK AL BOTON PARA OBTENER UN 20% DE DESCUENTO</a>
-
-	<input id="inputPatenteBen" name="patenteBeneficio" style="width : 200px; heigth : 1px"" class="form-control" placeholder="Patente" type="text">
+	</div>
+	<div>
+<div class="form-group">
+	<input id="inputPatenteBen" name="patenteBeneficio" style="width : 200px; heigth : 1px" class="form-control" placeholder="Patente" type="text">
+	</div>
 	<input type="hidden" name="dni" value="<%=u.getDni() %>">
 	<input type="hidden" name="nom" value="<%=u.getNombre() %>">
 	<input type="hidden" name="ape" value="<%=u.getApellido() %>">
 	<button class="btn btn-success">Solicitar beneficio</button>
+	</div>
 	</form>
 	</div>
   	

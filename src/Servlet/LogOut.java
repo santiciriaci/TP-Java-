@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Entidades.Usuario;
-
 /**
- * Servlet implementation class VolverServlet
+ * Servlet implementation class LogOut
  */
-@WebServlet("/VolverServlet")
-public class VolverServlet extends HttpServlet {
+@WebServlet("/LogOut")
+public class LogOut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public VolverServlet() {
+    public LogOut() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,22 +35,10 @@ public class VolverServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Usuario usu = (Usuario)request.getSession().getAttribute("usuario");
+		request.getSession().setAttribute("usuario",null);
 		
-		if (usu==null) {
-			request.getRequestDispatcher("index.html").forward(request, response);
-		}
-		else {
-		if (usu.getTipoUs()){	
-			
-			request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
-		}
-		else {
-			
-			request.getRequestDispatcher("WEB-INF/NoUserManagement.jsp").forward(request, response);
-		}
+		request.getRequestDispatcher("index.html").forward(request, response);		
 		
-		}
 	}
 
 }

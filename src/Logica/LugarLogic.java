@@ -46,12 +46,22 @@ public LinkedList<Lugar> getAll() throws SQLException {
 			
 	}
 	
-	public void update(Auto auto,Lugar lug) throws SQLException{
-		
-		
+	public void update(Auto auto,Lugar lug) throws SQLException,Exception{
+		if(lug.getEstado()=='O') {
+			if(lugData.getEstado(lug.getCodLugar())=='O'){
+				Exception e = new Exception("El lugar se encuentra ocupado");
+				throw e;
+			}else if(lugData.getOne(auto.getPatente())!=null) {
+				Exception e = new Exception("El auto ya se encuentra registrado en otro lugar");
+				throw e;
+			}
+				else {
+				lugData.update(auto,lug);
+				}
+			}
+		else {
 			lugData.update(auto,lug);
-			
-		
+			}
 
 }
 	

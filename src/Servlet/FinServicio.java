@@ -100,6 +100,8 @@ public class FinServicio extends HttpServlet {
 		} catch (SQLException e) {
 			request.setAttribute("mensaje", "Error al actualizar estado del lugar");
 			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		} catch (Exception e) {
+			
 		}
 		System.out.println(benefUsr);
 		System.out.println(benefDia);
@@ -128,7 +130,7 @@ public class FinServicio extends HttpServlet {
         os.flush();
         os.close();
 		request.setAttribute("usuario", usu);
-		//request.getRequestDispatcher("WEB-INF/UserManagement.jsp").forward(request, response);
+		//request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 	}
 }
 

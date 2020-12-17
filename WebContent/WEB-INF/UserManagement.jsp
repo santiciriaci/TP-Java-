@@ -44,6 +44,12 @@
 </head>
 <body class="bg-warning">
       <h3 style="text-align:center">Administrador: <%=u.getUsuario() %></h3>
+      <div style="position:absolute;top:0px;left:90%;background-color: #ff9;">
+      <form action="LogOut" method="post">
+                <button id="btnVolver" name="btnVolver" class="btn btn-sm btn-danger" type="submit">Cerrar Sesión
+                </button>
+                </form>
+                </div>
       		<div id="recuadro" style="position:absolute;left:100px;top:75px;z-index:2;background-color: #ff9;text-align:center;">	
       			<form action="ComienzoServicio"  method="post">
   				<b>Nuevo Servicio</b>
@@ -72,12 +78,16 @@
                     		<th style="background-color: red;"><%=lugar.getCodLugar()%></th>
                     		<th ><%=lugar.getNumpat() %></th><% } %>
                     </tr>
-                  			<% } %>
+                  			<% } %>	
              </tbody>
-             </table>    
-               
+             </table>          
      </div>
-     
+     <div style="position:absolute;right:220px;top:510px;z-index:2;">
+     <form action="VolverServlet" method="post">
+                <button id="btnActualizar" name="btnActualizar" class="btn btn-lg btn-success" type="submit">Actualizar
+                </button>
+             	</form>
+     </div>
       <div id="recuadro" style="position:absolute;left:100px;top:275px;z-index:2;background-color: #ff9;text-align:center;">
           <form action="FinServicio" method="post">
   				<b>Fin Servicio</b>
@@ -125,7 +135,7 @@
   				</form>
        </div >
        
-        <div id="recuadro" style="position:absolute;left:100px;top:780px;z-index:2;background-color: #ff9;text-align:center;">
+        <div id="recuadro" style="position:absolute;left:100px;top:850px;z-index:2;background-color: #ff9;text-align:center;">
           <form action="AsistenciaMensual" method="post">
   				<b>Asistencia mensual de clientes</b>
   				<input id="mesIni" name="mesIni" class="form-control" placeholder="Mes" type="text"><br>

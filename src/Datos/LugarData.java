@@ -173,6 +173,34 @@ public class LugarData {
 
 	}
 	
+		public char getEstado(int cod) throws SQLException{
+		
+		PreparedStatement stmt = conn.prepareStatement("select * from lugar where ID_lugar=? limit 1");
+		
+		stmt.setInt(1, cod);
+		
+		
+		ResultSet rs = stmt.executeQuery();
+		
+		char estado = 'D';
+		
+		if(rs.next()) {
+		
+		estado = rs.getString("estado_lugar").charAt(0);
+		
+		}
+		if(rs!=null) {rs.close();}
+		
+		if(stmt!=null) {stmt.close();}
+		
+		
+		
+		return estado;
+
+	}
+	
+	
+	
 	
 }
 

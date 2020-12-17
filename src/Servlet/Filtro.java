@@ -60,7 +60,7 @@ public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain chai
         HttpServletResponse response = (HttpServletResponse) arg1;
         Usuario usu = (Usuario)request.getSession().getAttribute("usuario");
         if(usu!= null){
-			if (usu.getTipoUs()){	
+			if (usu.getTipoUs()){
 				
 				response.sendRedirect("WEB-INF/UserManagement.jsp");
 				return;
@@ -82,7 +82,7 @@ public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain chai
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
+		
 	}
 
 }
