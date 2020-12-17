@@ -80,7 +80,7 @@
      </div>
      		
 			
-     <div style="position:absolute;left:525px;top:450px;z-index:2;">
+     <div style="position:absolute;left:525px;top:500px;z-index:2;">
      	<form class="form-newAuto bg-warning text-white" action="AgregarAuto" method="post">
      		<input id="inputPatente" name="patente" class="form-control" placeholder="Patente" type="text">
 		    <input id="inputModelo" name="modelo" class="form-control" placeholder="Modelo" type="text">
