@@ -59,14 +59,13 @@ private AutoData auData;
 	
 	public boolean validaPatente(String pat) throws SQLException{
 		
-		
 		ArrayList<Auto> autos = auData.getAll(); 
 		
 		
 		for (Auto a : autos) {
 			String patente = a.getPatente();
 			
-			if(pat.equals(patente)) {
+			if(pat.equalsIgnoreCase(patente)) {
 				
 				return (true);
 			}

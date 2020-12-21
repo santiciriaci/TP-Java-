@@ -229,7 +229,7 @@ public class TicketData {
 				
 			public void delete (int id) throws SQLException{
 				
-				PreparedStatement stmt = conn.prepareStatement("DELETE * from ticket where ID_ticket=?");
+				PreparedStatement stmt = conn.prepareStatement("DELETE from ticket where ID_ticket=?");
 				
 				stmt.setInt(1, id);
 				

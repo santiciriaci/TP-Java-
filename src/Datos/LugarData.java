@@ -159,7 +159,7 @@ public class LugarData {
 		
 	public void delete (int codLugar) throws SQLException{
 		
-		PreparedStatement stmt = conn.prepareStatement("DELETE * from lugar where ID_lugar=?");
+		PreparedStatement stmt = conn.prepareStatement("DELETE from lugar where ID_lugar=?");
 		
 		stmt.setInt(1, codLugar);
 		

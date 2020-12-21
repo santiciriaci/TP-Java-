@@ -33,18 +33,18 @@
     %>
 </head>
 <body class="bg-warning">
-	<h2 style="text-align:center">Bienvenido usuario: <%=u.getUsuario() %></h2>
+	<h2 style="text-align:center;font-size:40px">Bienvenido usuario: <%=u.getUsuario() %></h2>
 	<div style="position:absolute;top:0px;left:90%;background-color: #ff9;">
       <form action="LogOut" method="post">
-                <button id="btnVolver" name="btnVolver" class="btn btn-sm btn-danger" type="submit">Cerrar Sesión
+                <button id="btnVolver" name="btnVolver" class="btn btn-lg btn-danger" type="submit">Cerrar Sesión
                 </button>
                 </form>
                 </div>
 	<div id="recuadro" style="top:150px">
 	<form  action="EnviarMail" method="post">
 	<div style="text-align:center">
-	<a> INGRESE LA PATENTE DE SU VEHICULO Y ...<br>
-	CLICK AL BOTON PARA OBTENER UN 20% DE DESCUENTO</a>
+	<a> INGRESE LA PATENTE DE SU VEHÍCULO Y ...<br>
+	CLICK AL BOTÓN PARA OBTENER UN 20% DE DESCUENTO</a>
 	</div>
 	<div>
 <div class="form-group">
@@ -85,10 +85,21 @@
      		<input id="inputPatente" name="patente" class="form-control" placeholder="Patente" type="text">
 		    <input id="inputModelo" name="modelo" class="form-control" placeholder="Modelo" type="text">
 		    <input type="hidden" name="dni" value="<%=u.getDni() %>">
-		    <Button class="btn btn-lg btn-secondary" type="submit">Registrar nuevo vehículo</Button>
+		    <Button class="btn btn-lg btn-success" type="submit">Registrar nuevo vehículo</Button>
 		 </form>
      </div>
-	<div style="position: absolute; background-color: #ff9; padding: 15px; right:0px;top:700px;height:120px; width: 1280px; font-size:20px">
+     <div style="position:absolute;left:45%;top:38%;z-index:2;">
+     <form class="form-group" action="EliminarAuto" method="post">
+     
+     <input id="inputPatente" name="patente1" class="form-control" placeholder="Patente" type="text">
+     
+     <Button class="btn btn-sm btn-danger" type="submit">Eliminar Vehículo</Button>
+     
+     </form>
+     
+     
+     </div>
+	<div style="position: absolute; background-color: #ff9; left:0px;top:90%;height:10%; width: 100%; font-size:20px">
 		<a>Ciudad: Rosario        <a><br>
 		<a>Dirección: Zeballos 1341<a><br>
 		<a>Telefono: 0303-456</a>

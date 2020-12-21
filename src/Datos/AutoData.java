@@ -112,18 +112,14 @@ public class AutoData {
 		
 	public void delete (String patente) throws SQLException{
 		
-		PreparedStatement stmt = conn.prepareStatement("DELETE * from vehiculo where patente=?");
+		PreparedStatement stmt = conn.prepareStatement("DELETE from vehiculo where patente=?");
 		
 		stmt.setString(1, patente);
 		
 		stmt.executeUpdate();
 		
 		if(stmt!=null) {stmt.close();}
-		
-		
-		
-		
-	
+
 	}
 	
 	public LinkedList<Auto> getAutosCte(int dni) throws SQLException{

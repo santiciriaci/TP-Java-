@@ -43,14 +43,14 @@
 	
 </head>
 <body class="bg-warning">
-      <h3 style="text-align:center">Administrador: <%=u.getUsuario() %></h3>
+      <h3 style="text-align:center;font-size:40px">Administrador</h3>
       <div style="position:absolute;top:0px;left:90%;background-color: #ff9;">
       <form action="LogOut" method="post">
-                <button id="btnVolver" name="btnVolver" class="btn btn-sm btn-danger" type="submit">Cerrar Sesión
+                <button id="btnVolver" name="btnVolver" class="btn btn-lg btn-danger" type="submit">Cerrar Sesión
                 </button>
                 </form>
                 </div>
-      		<div id="recuadro" style="position:absolute;left:100px;top:75px;z-index:2;background-color: #ff9;text-align:center;">	
+      		<div id="recuadro" style="position:absolute;left:200px;top:75px;z-index:2;background-color: #ff9;text-align:center;">	
       			<form action="ComienzoServicio"  method="post">
   				<b>Nuevo Servicio</b>
   				<div><input id="lugar" name="lugar" class="form-control" placeholder="Lugar" type="text"><br></div>
@@ -60,9 +60,9 @@
   			</div>
           
           
-           <div id="div2" style="position:absolute;right:100px;top:50px;z-index:2;">
+           <div id="div2" style="position:absolute;left:40%;top:8%;z-index:2;">
   				<H3 align="center">LUGARES</H3>
-             <table border="1" >
+             <table border="1">
              <thead>
                    <tr>
                     <th>Lugar</th>
@@ -82,13 +82,13 @@
              </tbody>
              </table>          
      </div>
-     <div style="position:absolute;right:220px;top:510px;z-index:2;">
+     <div style="position:absolute;left:46.5%;top:58%;z-index:2">
      <form action="VolverServlet" method="post">
                 <button id="btnActualizar" name="btnActualizar" class="btn btn-lg btn-success" type="submit">Actualizar
                 </button>
              	</form>
      </div>
-      <div id="recuadro" style="position:absolute;left:100px;top:275px;z-index:2;background-color: #ff9;text-align:center;">
+      <div id="recuadro" style="position:absolute;left:200px;top:275px;z-index:2;background-color: #ff9;text-align:center;">
           <form action="FinServicio" method="post">
   				<b>Fin Servicio</b>
   				<input id="patente" name="patente" class="form-control" placeholder="Patente" type="text"><br>
@@ -98,7 +98,7 @@
   				</form>
        </div >
        
-       <div id="recuadro" style="position:absolute;right:200px;top:600px;z-index:2;background-color: #ff9;text-align:center"> 
+       <div id="recuadro" style="position:absolute;right:20%;top:8%;z-index:2;background-color: #ff9;text-align:center"> 
        		<form action="ActualizarTarifa" method="post"  >
        		
        		<b style="text-align:center">Tarifas</b>
@@ -125,7 +125,7 @@
        </div>
        
        
-       <div id="recuadro" style="position:absolute;left:100px;top:600px;z-index:2;background-color: #ff9;text-align:center;">
+       <div id="recuadro" style="position:absolute;left:200px;top:600px;z-index:2;background-color: #ff9;text-align:center;">
           <form action="FacturacionCliente" method="post">
   				<b>Facturación mensual cliente</b>
   				<input id="dni" name="dni" class="form-control" placeholder="Dni" type="text"><br>
@@ -135,7 +135,7 @@
   				</form>
        </div >
        
-        <div id="recuadro" style="position:absolute;left:100px;top:850px;z-index:2;background-color: #ff9;text-align:center;">
+        <div id="recuadro" style="position:absolute;left:450px;top:600px;z-index:2;background-color: #ff9;text-align:center;">
           <form action="AsistenciaMensual" method="post">
   				<b>Asistencia mensual de clientes</b>
   				<input id="mesIni" name="mesIni" class="form-control" placeholder="Mes" type="text"><br>

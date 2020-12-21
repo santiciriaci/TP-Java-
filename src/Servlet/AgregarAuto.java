@@ -45,7 +45,9 @@ public class AgregarAuto extends HttpServlet {
 		Auto auto = new Auto();
 		AutoLogic aulog = new AutoLogic();
 		String pat = request.getParameter("patente");
+		pat = pat.toUpperCase();
 		String mod = request.getParameter("modelo");
+		mod = mod.toUpperCase();
 		String dni = request.getParameter("dni");
 		int dnii = Integer.parseInt(dni);
 		auto.setPatente(pat);
@@ -63,21 +65,21 @@ public class AgregarAuto extends HttpServlet {
 		request.setAttribute("usuario", usu);
 		
 		if(band) {
-			System.out.println("PATENTE YA REGISTRADA");
 			
-			request.getRequestDispatcher("WEB-INF/NoUserManagement.jsp").forward(request, response);
+			request.setAttribute("mensaje", "La patente ingresada ya existe");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 			
 		}
 		else {
 			try {
 				aulog.insert(auto);
+				request.getRequestDispatcher("WEB-INF/NoUserManagement.jsp").forward(request, response);
 			} catch (Exception e) {
 				request.setAttribute("mensaje", "Error al agregar Auto");
 				request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 			}
 			System.out.println("REGISTRADO");
-			
-			request.getRequestDispatcher("WEB-INF/NoUserManagement.jsp").forward(request, response);
+
 		}
 	}
 

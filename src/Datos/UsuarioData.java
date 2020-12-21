@@ -175,7 +175,7 @@ public UsuarioData() {
 		
 	public void delete (int dni) throws SQLException{
 		
-		PreparedStatement stmt = conn.prepareStatement("DELETE * from usuarios where dni=?");
+		PreparedStatement stmt = conn.prepareStatement("DELETE from usuarios where dni=?");
 		
 		stmt.setInt(1, dni);
 		

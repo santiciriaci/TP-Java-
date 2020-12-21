@@ -158,7 +158,7 @@ public class TarifaData {
 		
 	public void delete (int ID_tarifa) throws SQLException{
 		
-		PreparedStatement stmt = conn.prepareStatement("DELETE * from tarifa where ID_tarifa=?");
+		PreparedStatement stmt = conn.prepareStatement("DELETE from tarifa where ID_tarifa=?");
 		
 		stmt.setInt(1, ID_tarifa);
 		
