@@ -39,9 +39,10 @@ public class EnviarMail extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Mail mail = new Mail();
 		request.setAttribute("usuario", request.getAttribute("usuario"));
-        String de =  "tpestacionamientojava@gmail.com";
-        String clave = "estacionamiento123";
-       
+        //String de =  "tpestacionamientojava@gmail.com";
+        //String clave = "estacionamiento123";
+		String de =  "pepegalera97@gmail.com";
+        String clave = "Casa1234";
 		
 		//String para = usu.getMail();
         String para = "santiagociriaci@gmail.com";

@@ -74,6 +74,11 @@
 	      </div>
 	   
 	    </form>
+	    <form class=""  method="post" action="VolverServlet">
+	    <div class="form-signin">
+	      <button class="btn btn-sm btn-secondary" type="submit"><i class="fas fa-sign-in-alt"></i>Volver</button>
+	      </div>
+	      </form>
 	  </div>
 	  </div>
 </body>
