@@ -11,6 +11,7 @@ public class DbConnector {
 	private String host="localhost";
 	private String port="3307";
 	private String user="root";
+	private String pass="";
 	private String password="VMMont27520";
 	private String db="estacionamiento";
 	private int conectados=0;
@@ -34,8 +35,8 @@ public class DbConnector {
 	public Connection getConn() {
 		try {
 			if(conn==null || conn.isClosed()) {
-				//conn=DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/"+db+"?serverTimezone=UTC", user, password);
-				conn=DriverManager.getConnection("jdbc:mysql://node64490-estacionamiento.jelastic.saveincloud.net/", user, password);
+				conn=DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/"+db+"?serverTimezone=UTC", user, pass);
+				//conn=DriverManager.getConnection("jdbc:mysql://node64490-estacionamiento.jelastic.saveincloud.net/", user, password);
 				conectados=0;
 			}
 		} catch (SQLException e) {
