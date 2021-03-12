@@ -198,6 +198,34 @@ public class LugarData {
 		return estado;
 
 	}
+		
+		public Lugar getLugar(int codLug) throws SQLException{
+			
+			PreparedStatement stmt = conn.prepareStatement("select * from lugar where ID_lugar=?");
+			
+			stmt.setInt(1, codLug);
+			
+			
+			ResultSet rs = stmt.executeQuery();
+			AutoLogic auLog = new AutoLogic();
+			Lugar lug = new Lugar();
+			
+			if(rs.next()) {
+			
+			
+			lug.setCodLugar(rs.getInt("ID_lugar"));
+			lug.setEstado(rs.getString("estado_lugar").charAt(0));
+			lug.setNumpat(rs.getString("numpat"));
+			
+			}
+			if(rs!=null) {rs.close();}
+			
+			if(stmt!=null) {stmt.close();}
+			
+			return lug;
+
+		}
+		
 	
 	
 	

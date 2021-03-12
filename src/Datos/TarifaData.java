@@ -85,8 +85,8 @@ public class TarifaData {
 	
 	public Tarifa getActual() throws SQLException{
 		
-		PreparedStatement stmt = conn.prepareStatement("select * from tarifa where ID_tarifa=(SELECT MAX(ID_tarifa) FROM tarifa)");
-		
+		PreparedStatement stmt = conn.prepareStatement("SELECT  * FROM tarifa ORDER BY ID_tarifa DESC LIMIT 1");
+		//select * from tarifa where ID_tarifa=(SELECT MAX(ID_tarifa) FROM tarifa)
 		ResultSet rs = stmt.executeQuery();
 		
 		Tarifa tar1 = new Tarifa();

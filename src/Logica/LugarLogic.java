@@ -31,6 +31,14 @@ public LinkedList<Lugar> getAll() throws SQLException {
 		
 	}
 	
+public Lugar getLugar(int codLug) throws SQLException{
+		
+		Lugar lugar = lugData.getLugar(codLug);
+		return lugar;
+		
+	}
+	
+	
 	public void insert(Lugar lug) throws SQLException{
 		
 		
@@ -48,22 +56,27 @@ public LinkedList<Lugar> getAll() throws SQLException {
 	
 	public void update(Auto auto,Lugar lug) throws SQLException,Exception{
 		if(lug.getEstado()=='O') {
-			if(lugData.getEstado(lug.getCodLugar())=='O'){
 				Exception e = new Exception("El lugar se encuentra ocupado");
 				throw e;
-			}else if(lugData.getOne(auto.getPatente())!=null) {
-				Exception e = new Exception("El auto ya se encuentra registrado en otro lugar");
-				throw e;
 			}
-				else {
-				lugData.update(auto,lug);
-				}
+		if(lugData.getOne(auto.getPatente()).getEstado()=='O') {
+			Exception e = new Exception("El auto ya se encuentra registrado en otro lugar");
+			throw e;
 			}
 		else {
+			if(auto.getPatente()==null){
+				lug.setEstado('D');
+			}
+			else {
+				lug.setEstado('O');
+			}
+			
 			lugData.update(auto,lug);
 			}
+		}
+		
 
-}
+
 	
 	public LinkedList<Lugar> getDisponibles() throws SQLException{
 		

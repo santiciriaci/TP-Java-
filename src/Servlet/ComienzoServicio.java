@@ -56,8 +56,12 @@ public class ComienzoServicio extends HttpServlet {
 		String codLugarr = request.getParameter("lugar");
 		int codLugar = Integer.parseInt(codLugarr);
 		String patente = request.getParameter("patente");
-		lugar.setCodLugar(codLugar);
-		lugar.setEstado('O');
+		try {
+			lugar = lugLog.getLugar(codLugar);
+		} catch (SQLException e2) {
+			request.setAttribute("mensaje", "No se encuentra el lugar");
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		}
 		AutoLogic auLog = new AutoLogic();
 		Auto auto = new Auto();
 		try {

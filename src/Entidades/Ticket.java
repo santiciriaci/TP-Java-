@@ -67,9 +67,9 @@ public class Ticket {
 		return importe;
 	}
 	public void setImporte(double importe) throws SQLException, ParseException {
-		if(this.getFecha_horaFin()==null) {
+		if(this.getFecha_horaFin()!=null) {
 			
-		this.importe = this.calculaImporte(this.getFecha_horaIni(),this.getFecha_horaFin(),this.getID_tarifa());}
+		this.importe = this.calculaImporte(this.getFecha_horaIni(),this.getFecha_horaFin());}
 		
 		else {this.importe = importe;};
 		
@@ -108,7 +108,7 @@ public class Ticket {
 		this.numpat = numpat;
 	}
 
-	public float calculaImporte(Timestamp fecini, Timestamp fecfin, int idtar) throws SQLException, ParseException {
+	public double calculaImporte(Timestamp fecini, Timestamp fecfin) throws SQLException, ParseException {
 		Tarifa tar = new Tarifa();
 		TarifaLogic tarlog = new TarifaLogic();
 		tar=tarlog.getActual();
@@ -163,8 +163,7 @@ public class Ticket {
 
 		
 		*/
-		this.setImporte(importe);
-		return (float) importe;
+		return (double) importe;
 	}
 	
 	public ByteArrayOutputStream Pdf(boolean benefUsr, boolean benefDia) throws DocumentException, SQLException, ParseException{
