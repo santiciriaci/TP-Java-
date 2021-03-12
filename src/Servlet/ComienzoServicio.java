@@ -80,7 +80,7 @@ public class ComienzoServicio extends HttpServlet {
 		
 		try {
 			lugLog.update(auto, lugar);
-		} 
+		}
 		catch (SQLException e1) {
 			request.setAttribute("mensaje", "Error al actualizar el estado del lugar");
 			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);

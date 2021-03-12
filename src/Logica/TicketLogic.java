@@ -39,7 +39,7 @@ public LinkedList<Ticket> getTicketsPatente(String pat, int mes, int ano) throws
 	
 	public  Ticket finSer (Ticket ti) throws SQLException, ParseException,Exception{
 		if (ti == null) {
-			Exception e = new Exception("El auto no se encuentra en el estacionamiento");
+			Exception e = new Exception();
 			throw e;
 		}
 		
