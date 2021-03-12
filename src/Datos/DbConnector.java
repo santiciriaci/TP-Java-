@@ -40,6 +40,13 @@ public class DbConnector {
 				conectados=0;
 			}
 		} catch (SQLException e) {
+			try {
+				conn=DriverManager.getConnection("jdbc:mysql://node64812-env-2184224.jelastic.saveincloud.net/estacionamiento", user, password);
+				conectados=0;
+			}
+			catch(SQLException e1){
+				e.printStackTrace();
+			}
 			e.printStackTrace();
 		}
 		conectados++;
