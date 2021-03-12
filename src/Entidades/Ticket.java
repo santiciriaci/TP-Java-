@@ -151,7 +151,7 @@ public class Ticket {
 		long diffOnlyMin=(long) (Math.floor(diff%60)); //minutos
 		
 		System.out.println("min" + (Math.floor(diff%60)));
-		if(diffOnlyMin > 15) {
+		if(diffOnlyMin > 5) {
 			importe = importe + ((tar.getMediaHora()));}
 		
 		/*

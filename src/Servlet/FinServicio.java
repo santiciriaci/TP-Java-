@@ -77,6 +77,9 @@ public class FinServicio extends HttpServlet {
 		} catch (ParseException e) {
 			request.setAttribute("mensaje", "Error al convertir las fechas del ticket");
 			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
+		} catch (Exception e) {
+			request.setAttribute("mensaje", e.getMessage());
+			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
 		LugarLogic lugLogic = new LugarLogic();
 		Lugar lug = new Lugar();

@@ -185,9 +185,7 @@ public class TicketData {
 		}
 		
 		
-		//Timestamp fecfin = ti.getFecha_horaFin();
-		
-		float importe = 0;
+		double importe = 0;
 		System.out.println(importe);
 		ti.setImporte(importe);
 		PreparedStatement stmt = conn.prepareStatement("UPDATE ticket SET fecha_hora_fin=?,importe=? where ID_ticket=?");
