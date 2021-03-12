@@ -109,11 +109,11 @@
        		<div class="form-group"><input id="hora" name="hora" class="form-control" size="12" placeholder="$ hora" type="text" required>
        		<b>$<%=tar.getHora() %></b></div>
        		
-<!--        		<div class="form-group"><input id="mediaest" name="mediaest" class="form-control" size="12" placeholder="$ 1/2 estadía" type="text" required> -->
-<%--        		<b>$<%=tar.getMediaEstadia() %></b></div> --%>
+       		<div class="form-group"><input id="mediaest" name="mediaest" class="form-control" size="12" placeholder="$ 1/2 estadía" type="text" required>
+       		<b>$<%=tar.getMediaEstadia() %></b></div>
        		
-<!--        		<div class="form-group"><input id="estadia" name="estadia" class="form-control" size="12" placeholder="$ estadía" type="text" required> -->
-<%--        		<b>$<%=tar.getEstadiaCompleta() %></b></div> --%>
+       		<div class="form-group"><input id="estadia" name="estadia" class="form-control" size="12" placeholder="$ estadía" type="text" required>
+       		<b>$<%=tar.getEstadiaCompleta() %></b></div>
        		
 <!--        		<div class="form-group"><input id="semanal" name="semanal" class="form-control" size="12" placeholder="$ semanal" type="text" required> -->
 <%--        		<b>$<%=tar.getSemanal() %></b></div> --%>
