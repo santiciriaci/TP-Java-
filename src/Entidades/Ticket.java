@@ -66,8 +66,13 @@ public class Ticket {
 	public double getImporte() {
 		return importe;
 	}
-	public void setImporte(double importe) {
-		this.importe = importe;
+	public void setImporte(double importe) throws SQLException, ParseException {
+		if(this.getFecha_horaFin()==null) {
+			
+		this.importe = this.calculaImporte(this.getFecha_horaIni(),this.getFecha_horaFin(),this.getID_tarifa());}
+		
+		else {this.importe = importe;};
+		
 	}
 	
 
@@ -103,7 +108,7 @@ public class Ticket {
 		this.numpat = numpat;
 	}
 
-	public static float calculaImporte(Timestamp fecini, Timestamp fecfin, int idtar) throws SQLException, ParseException {
+	public float calculaImporte(Timestamp fecini, Timestamp fecfin, int idtar) throws SQLException, ParseException {
 		Tarifa tar = new Tarifa();
 		TarifaLogic tarlog = new TarifaLogic();
 		tar=tarlog.getActual();
@@ -158,25 +163,38 @@ public class Ticket {
 
 		
 		*/
-		
+		this.setImporte(importe);
 		return (float) importe;
 	}
 	
-	public ByteArrayOutputStream Pdf() throws DocumentException{
+	public ByteArrayOutputStream Pdf(boolean benefUsr, boolean benefDia) throws DocumentException, SQLException, ParseException{
 
         Document document = new Document();
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-
+        	
+        
+        	double importe = 0;
+        	importe = this.getImporte();
+        	if(benefUsr==true) {
+        		if(benefDia==true) {
+        		importe=importe*0.7;
+        		}
+        		else {importe=importe*0.85;}
+        	}
+        	
+        	if(benefDia==true && benefUsr==false) {
+        		importe=importe*0.85;
+        	}
+        	
             PdfWriter.getInstance(document, baos);
             document.open();
             Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
-            Paragraph par = new Paragraph("ID: "+this.getId()+"\r\n"+"Patente: "+this.getNumpat()+"\r\n"+"Fecha y hora de llegada:"+this.getFecha_horaIni()+"\r\n"+"Fecha y hora de salida:"+this.getFecha_horaFin()+"\r\n"+"Importe:"+this.getImporte(),font);
+            Paragraph par = new Paragraph("ID: "+this.getId()+"\r\n"+"Patente: "+this.getNumpat()+"\r\n"+"Fecha y hora de llegada:"+this.getFecha_horaIni()+"\r\n"+"Fecha y hora de salida:"+this.getFecha_horaFin()+"\r\n"+"Importe:"+importe,font);
             document.add(par);
             document.close();
         
-        return baos;
+            return baos;
 
     }
 	

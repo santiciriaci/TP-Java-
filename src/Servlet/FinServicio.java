@@ -60,7 +60,7 @@ public class FinServicio extends HttpServlet {
 		Ticket tic = new Ticket();
 		try {
 			tic = tickLog.getOne(patente);
-		} catch (SQLException e) {
+		} catch (SQLException | ParseException e) {
 			request.setAttribute("mensaje", "Error al recuperar ticket");
 			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}
@@ -108,8 +108,9 @@ public class FinServicio extends HttpServlet {
 		System.out.println("FINALIZADO");
 		ByteArrayOutputStream baos = null;
 		try {
-			baos = tic.Pdf();
-		} catch (DocumentException e) {
+				baos = tic.Pdf(benefUsr,benefDia);
+			
+		} catch (SQLException | ParseException |DocumentException e) {
 			request.setAttribute("mensaje", "Error al crear PDF");
 			request.getRequestDispatcher("WEB-INF/Error.jsp").forward(request, response);
 		}

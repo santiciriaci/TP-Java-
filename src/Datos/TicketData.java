@@ -26,7 +26,7 @@ public class TicketData {
 		
 	}
 			
-	public ArrayList<Ticket> getAll() throws SQLException{
+	public ArrayList<Ticket> getAll() throws SQLException, ParseException{
 				
 				
 		Statement stmt = conn.createStatement();
@@ -65,7 +65,7 @@ public class TicketData {
 			}
 			
 	
-	public LinkedList<Ticket> getTicketsPatente(String pat,int mes, int ano) throws SQLException{
+	public LinkedList<Ticket> getTicketsPatente(String pat,int mes, int ano) throws SQLException, ParseException{
 		
 		
 				
@@ -110,7 +110,7 @@ public class TicketData {
 			}
 	
 	
-		public Ticket getOne(String pat) throws SQLException{
+		public Ticket getOne(String pat) throws SQLException, ParseException{
 				
 		PreparedStatement stmt = conn.prepareStatement("select * from ticket where (numpat LIKE ? and fecha_hora_fin IS NULL)");
 				
@@ -187,7 +187,7 @@ public class TicketData {
 		
 		Timestamp fecfin = ti.getFecha_horaFin();
 		
-		float importe = Ticket.calculaImporte(fecini,fecfin,idtar);
+		float importe = 0;
 		System.out.println(importe);
 		ti.setImporte(importe);
 		PreparedStatement stmt = conn.prepareStatement("UPDATE ticket SET fecha_hora_fin=?,importe=? where ID_ticket=?");

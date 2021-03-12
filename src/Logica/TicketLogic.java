@@ -18,19 +18,19 @@ private TicketData tickData;
 		
 	}
 
-public ArrayList<Ticket> getAll() throws SQLException {
+public ArrayList<Ticket> getAll() throws SQLException, ParseException {
 		
 		return tickData.getAll();
 		
 	}
 
-public LinkedList<Ticket> getTicketsPatente(String pat, int mes, int ano) throws SQLException {
+public LinkedList<Ticket> getTicketsPatente(String pat, int mes, int ano) throws SQLException, ParseException {
 	
 	return tickData.getTicketsPatente(pat, mes, ano);
 	
 }
 
-	public Ticket getOne(String pat) throws SQLException{
+	public Ticket getOne(String pat) throws SQLException, ParseException{
 		
 		Ticket ticket = tickData.getOne(pat);
 		return ticket;
