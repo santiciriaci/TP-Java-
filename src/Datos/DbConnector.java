@@ -35,8 +35,8 @@ public class DbConnector {
 	public Connection getConn() {
 		try {
 			if(conn==null || conn.isClosed()) {
-				conn=DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/"+db+"?serverTimezone=UTC", user, pass);
-				//conn=DriverManager.getConnection("jdbc:mysql://node64812-env-2184224.jelastic.saveincloud.net/estacionamiento", user, password);
+				//conn=DriverManager.getConnection("jdbc:mysql://"+host+":"+port+"/"+db+"?serverTimezone=UTC", user, pass);
+				conn=DriverManager.getConnection("jdbc:mysql://node64812-env-2184224.jelastic.saveincloud.net/estacionamiento", user, password);
 				conectados=0;
 			}
 		} catch (SQLException e) {
